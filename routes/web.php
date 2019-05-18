@@ -13,7 +13,7 @@
 
 Route::get('/', 'PublicController@index')->name('index');
 
-Route::get('post/{id}', 'PublicController@singlePost')->name('singlePost');
+Route::get('post/{post}', 'PublicController@singlePost')->name('singlePost');
 
 Route::get('about', 'PublicController@about')->name('about');
 
@@ -41,5 +41,5 @@ Route::prefix('admin')->group(function(){
     Route::get('posts','AdminController@posts')->name('adminPosts');
     Route::get('comments','AdminController@comments')->name('adminComments');
     Route::get('users','AdminController@users')->name('adminUsers');
-    
+
 });
