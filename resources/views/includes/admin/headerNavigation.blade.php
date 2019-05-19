@@ -29,7 +29,11 @@
         <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 <img src="{{ asset('admin/assets/imgs/avatar-1.png')}}" class="avatar avatar-sm" alt="logo">
-                <span class="small ml-1 d-md-down-none">{{ Auth::user()->name }}</span>
+                <span class="small ml-1 d-md-down-none">
+                    @if (Auth::check())
+                        {{ Auth::user()->name }}
+                    @endif
+                </span>
             </a>
 
             <div class="dropdown-menu dropdown-menu-right">

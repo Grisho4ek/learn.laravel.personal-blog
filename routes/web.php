@@ -1,5 +1,5 @@
 <?php
-// урок 42
+// урок 54
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -28,6 +28,8 @@ Route::get('/dashboard', 'HomeController@index')->name('dashboard');
 Route::prefix('user')->group(function(){
     Route::get('dashboard', 'UserController@dashboard')->name('userDashboard');
     Route::get('comments', 'UserController@comments')->name('userComments');
+    Route::get('profile', 'UserController@profile')->name('userProfile');
+    Route::post('profile', 'UserController@profilePost')->name('userProfilePost');
 });
 
 Route::prefix('author')->group(function(){
