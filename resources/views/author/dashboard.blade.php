@@ -1,6 +1,6 @@
 @extends('layouts.admin');
 
-@section('title') @endsection
+@section('title') Admin Dahsboard @endsection
 
 @section('content')
 

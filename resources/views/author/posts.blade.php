@@ -21,8 +21,7 @@ Author posts
                         <th>Created at</th>
                         <th>Updated at</th>
                         <th>Comments</th>
-                        <th>Edit</th>
-                        <th>Delete</th>
+                        <th>Actions</th>
                     </tr>
                     </thead>
                     <tbody>
@@ -35,14 +34,13 @@ Author posts
                                 <td>{{ \Carbon\Carbon::parse($post->updated_at)->diffForHumans() }}</td>
                                 <td>{{ $post->comments->count() }}</td>
                                 <td>
-                                    edit soon
-                                </td>
-                                <td>
                                     <form id="deletePost-{{ $post->id }}" action="{{ route('deletePost', $post->id) }}" method="POST">
                                         @csrf
                                     </form>
                                     {{-- <a href="#" onclick="document.getElementById('deleteComment-{{ $comment->id }}').submit()">X</a> --}}
-                                    <button type="button" class="btn btn-danger" onclick="document.getElementById('deletePost-{{ $post->id }}').submit()">X</button>
+                                    {{-- <button type="button" class="btn btn-danger" onclick="document.getElementById('deletePost-{{ $post->id }}').submit()">X</button> --}}
+                                    <a href="{{ route('editPost', $post->id) }}" class="btn-warning btn">Edit</a>
+                                    <a href="#" class="btn-danger btn" onclick="document.getElementById('deletePost-{{ $post->id }}').submit()">Remove</a>
                                 </td>
                             </tr>
                         @endforeach

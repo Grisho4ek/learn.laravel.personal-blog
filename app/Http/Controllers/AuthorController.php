@@ -32,7 +32,9 @@ class AuthorController extends Controller
 
     public function comments()
     {
-        return view('author.comments');
+        $posts = Post::where('user_id', Auth::id())->pluck('id')->toArray();
+        $comments = Comment::whereIn('post_id', $posts)->get();
+        return view('author.comments', compact('comments'));
     }
 
     public function newPost()
@@ -53,8 +55,25 @@ class AuthorController extends Controller
 
     public function deletePost($id)
     {
-        $post = Post::where('id', $id)->where('user_id', Auth::id())->delete();
+        $post = Post::where('id', $id)->where('user_id', Auth::id())->first();
+        $post->delete();
 
         return back();
+    }
+
+    public function editPost($id)
+    {
+        $post = Post::where('id', $id)->where('user_id', Auth::id())->first();
+        return view('author.editPost', compact('post'));
+    }
+
+    public function postEditPost(CreatePost $request, $id)
+    {
+        $post = Post::where('id', $id)->where('user_id', Auth::id())->first();
+        $post->title = $request['title'];
+        $post->content = $request['content'];
+        $post->save();
+
+        return back()->with('success', "Post edited successfully");
     }
 }

@@ -8,7 +8,7 @@
  <div class="content">
     <div class="card">
         <div class="card-header bg-light">
-            Striped Rows
+            Comments
         </div>
 
         <div class="card-body">
@@ -20,7 +20,7 @@
                         <th>Post</th>
                         <th>Content</th>
                         <th>Created at</th>
-                        <th>Discount</th>
+                        <th>Action</th>
                     </tr>
                     </thead>
                     <tbody>
