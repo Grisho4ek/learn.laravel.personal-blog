@@ -1,1 +1,5 @@
-admin.posts
+@extends('layouts.admin');
+
+@section('content')
+    admin.posts
+@endsection
