@@ -27,16 +27,30 @@
             {!! nl2br($post->content) !!}
         </div>
     </div>
-    <div class="comments">
-            <hr>
-            <h2>Comments</h2>
-            <hr>
-            @foreach ($post->comments as $comment)
-                <p>{{ $comment->content }}</p>
-                <p><small>by {{ $comment->user->name }}, {{ date_format($comment->created_at, 'F d, Y') }}</small></p>
-                <hr>
-            @endforeach
+    @if(Auth::check())
+        <hr>
+        <div class="coment-form">
+            <h2>Leave a Comment</h2>
+            <form action="{{ route('newComment') }}" method="post">
+                @csrf
+                <div class="form-group">
+                    <input type="hidden" name="post" value="{{ $post->id }}">
+                    <textarea type="text" class="form-control" name="comment" cols="30" rows="10" placeholder="Comment text"></textarea>
+                </div>
+                <button class="btn btn-success" type="submit">Submit</button>
+            </form>
         </div>
+    @endif
+    <div class="comments">
+        <hr>
+        <h2>Comments</h2>
+        <hr>
+        @foreach ($post->comments as $comment)
+            <p>{{ $comment->content }}</p>
+            <p><small>by {{ $comment->user->name }}, {{ date_format($comment->created_at, 'F d, Y') }}</small></p>
+            <hr>
+        @endforeach
+    </div>
 </div>
 </article>
 

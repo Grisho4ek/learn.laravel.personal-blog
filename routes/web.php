@@ -1,5 +1,5 @@
 <?php
-// урок 60
+// урок 66
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -31,6 +31,7 @@ Route::prefix('user')->group(function(){
         Route::post('comments/{id}/delete', 'UserController@deleteComment')->name('deleteComment');
     Route::get('profile', 'UserController@profile')->name('userProfile');
     Route::post('profile', 'UserController@profilePost')->name('userProfilePost');
+    Route::post('newComment', 'UserController@newComment')->name('newComment');
 });
 
 Route::prefix('author')->group(function(){

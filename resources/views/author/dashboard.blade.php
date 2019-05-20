@@ -1,6 +1,6 @@
 @extends('layouts.admin');
 
-@section('title') Admin Dahsboard @endsection
+@section('title') Author Dahsboard @endsection
 
 @section('content')
 
@@ -74,9 +74,14 @@
                     <div class="card-body">
                         Posts by Day
                     </div>
+                    <div class="card-body p-0">
+                        {!! $chart->container() !!}
+                    </div>
                 </div>
             </div>
         </div>
     </div>
 </div>
+
+{!! $chart->script() !!}
 @endsection
