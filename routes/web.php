@@ -58,4 +58,19 @@ Route::prefix('admin')->group(function(){
         Route::post('posts/{id}/delete', 'AdminController@deletePost')->name('adminDeletePost');
     Route::get('comments', 'AdminController@comments')->name('adminComments');
         Route::post('comments/{id}/delete', 'AdminController@adminDeleteComment')->name('adminDeleteComment');
+
+    Route::get('products', 'Admincontroller@products')->name('adminProducts');
+
+    Route::get('porducts/new', 'AdminController@newProduct')->name('adminNewProduct');
+    Route::post('porducts/new', 'AdminController@newProductPost')->name('adminNewProductPost');
+
+    Route::get('product/{id}', 'AdminController@editProduct')->name('adminEditProduct');
+    Route::post('product/{id}', 'AdminController@editProductPost')->name('adminEditProductPost');
+    Route::post('product/{id}/delete', 'AdminController@deleteProduct')->name('adminDeleteProduct');
+});
+
+Route::prefix('shop')->group(function(){
+    Route::get('/', 'ShopController@index')->name('shop.index');
+    Route::get('product/{id}', 'ShopController@singleProduct')->name('shop.SingleProduct');
+    Route::get('product/{id}/order', 'ShopController@orderProduct')->name('shop.OrderProduct');
 });

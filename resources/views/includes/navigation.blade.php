@@ -11,6 +11,9 @@
                     <a class="nav-link" href="{{ route('index') }}">Home</a>
                 </li>
                 <li class="nav-item">
+                    <a class="nav-link" href="{{ route('shop.index') }}">Shop</a>
+                </li>
+                <li class="nav-item">
                     <a class="nav-link" href="{{ route('about') }}">About</a>
                 </li>
                 {{-- <li class="nav-item">
@@ -26,10 +29,10 @@
                         <a class="nav-link" href="{{ route('dashboard') }}">Dashboard</a>
                     </li>
                     <li class="nav-item">
+                        <a class="nav-link" href="#" onclick="document.getElementById('logout-form').submit();">Logout</a>
                         <form method='POST' id="logout-form" action="{{ route('logout') }}">
                             @csrf
                         </form>
-                        <a class="nav-link" href="#" onclick="document.getElementById('logout-form').submit();">Logout</a>
                     </li>
                 @else
 
@@ -41,6 +44,7 @@
                     </li>
 
                 @endif
+
             </ul>
             </div>
         </div>

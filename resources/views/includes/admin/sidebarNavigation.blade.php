@@ -51,6 +51,12 @@
                 </li>
 
                 <li class="nav-item nav-dropdown">
+                        <a href="{{ route('adminProducts') }}" class="nav-link {{ Route::currentRouteName() == 'adminProducts' ? 'active' : ''}}">
+                            <i class="icon icon-basket-loaded"></i> Products
+                        </a>
+                    </li>
+
+                <li class="nav-item nav-dropdown">
                     <a href="{{ route('adminPosts') }}" class="nav-link {{ Route::currentRouteName() == 'adminPosts' ? 'active' : ''}}">
                         <i class="icon icon-paper-clip"></i> Posts
                     </a>
